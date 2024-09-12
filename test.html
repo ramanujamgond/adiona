@@ -36,54 +36,7 @@
         </div>
     </nav>
 
-    <style>
-        .ball {
-            width: 60px;
-            height: 60px;
-            background-image: url('ball.png');
-            background-size: cover;
-            border-radius: 50%;
-            position: absolute;
-            transition: transform 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            .ball {
-                display: none;
-            }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.innerWidth > 768) {
-                const container = document.createElement('div');
-                container.style.position = 'absolute';
-                container.style.width = '100%';
-                container.style.height = '500px';
-                document.body.insertBefore(container, document.querySelector('.hero-section'));
-
-                for (let i = 0; i < 5; i++) {
-                    const ball = document.createElement('div');
-                    ball.classList.add('ball');
-                    ball.style.top = `${Math.random() * 100}%`;
-                    ball.style.left = `${Math.random() * 100}%`;
-                    container.appendChild(ball);
-                }
-
-                container.addEventListener('mousemove', function(event) {
-                    const balls = document.querySelectorAll('.ball');
-                    balls.forEach(ball => {
-                        const rect = ball.getBoundingClientRect();
-                        const ballX = rect.left + rect.width / 2;
-                        const ballY = rect.top + rect.height / 2;
-                        const deltaX = (ballX - event.clientX) * 0.1;
-                        const deltaY = (ballY - event.clientY) * 0.1;
-                        ball.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-                    });
-                });
-            }
-        });
-    </script>
+   
 
     <!-- Hero Section -->
 
