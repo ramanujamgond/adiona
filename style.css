@@ -3,12 +3,26 @@
 
 
 .hero-section {
-    background-color: #fff;
+    background-color: #F4F4F4;
     padding: 60px 0;
     font-family: 'Inter', sans-serif;
     background-size: cover;
     background-position: center;
+    padding-bottom: 0px !important;
 }
+
+@media (min-width: 992px) {
+    .hero-section .mn {
+        margin-top: -6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section img {
+        margin-top: 2.4rem;
+    }
+}
+
 .feature-box {
     background-color: #fff;
     padding: 20px;
@@ -27,7 +41,30 @@
     background-color: #f8f9fa;
     padding: 60px 0;
     font-family: 'Inter', sans-serif;
+    margin-top: 6rem;
+    background-image: url('footerbg.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
 }
+
+.download-section h2 {
+    color: #000;
+    font-family: Jost;
+    font-size: 2.1875rem; /* 35px in rem */
+    font-style: normal;
+    font-weight: 600;
+}
+
+.download-section p {
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem; /* 16px in rem */
+    font-weight: 400;
+}
+
+
 .nav-link {
     position: relative;
     display: inline-block;
@@ -178,7 +215,7 @@ h1 {
 }
 
 .hsearch img {
-    width: 70%;
+    width: 80%;
     height: auto;
 }
 
@@ -214,3 +251,5 @@ h1 {
     color: #666;
     margin-top: 0.5rem; /* 8px in rem */
 }
+
+

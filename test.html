@@ -36,31 +36,79 @@
         </div>
     </nav>
 
+    <style>
+        .ball {
+            width: 60px;
+            height: 60px;
+            background-image: url('ball.png');
+            background-size: cover;
+            border-radius: 50%;
+            position: absolute;
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .ball {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth > 768) {
+                const container = document.createElement('div');
+                container.style.position = 'absolute';
+                container.style.width = '100%';
+                container.style.height = '500px';
+                document.body.insertBefore(container, document.querySelector('.hero-section'));
+
+                for (let i = 0; i < 5; i++) {
+                    const ball = document.createElement('div');
+                    ball.classList.add('ball');
+                    ball.style.top = `${Math.random() * 100}%`;
+                    ball.style.left = `${Math.random() * 100}%`;
+                    container.appendChild(ball);
+                }
+
+                container.addEventListener('mousemove', function(event) {
+                    const balls = document.querySelectorAll('.ball');
+                    balls.forEach(ball => {
+                        const rect = ball.getBoundingClientRect();
+                        const ballX = rect.left + rect.width / 2;
+                        const ballY = rect.top + rect.height / 2;
+                        const deltaX = (ballX - event.clientX) * 0.1;
+                        const deltaY = (ballY - event.clientY) * 0.1;
+                        ball.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                    });
+                });
+            }
+        });
+    </script>
+
     <!-- Hero Section -->
 
     
-    <section class="hero-section" >
-        <div class="container" style="position: relative; background-image: url('bg.png'); background-size: cover; background-position: center;">
+    <section class="hero-section" data-aos="fade-up">
+        <div class="container">
             <div class="row" style="position: relative; z-index: 1;">
-                <div class="col-md-6 d-flex flex-column justify-content-center">
+                <div class="col-md-6 mn d-flex flex-column justify-content-center" data-aos="fade-right">
                     <h1>Discover Your Perfect Stay with Adiona</h1>
                     <p class="desc">Experience seamless hotel booking with our AI-powered search and personalized recommendations.</p>
                     <div>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#" class="btn btn-dark btn-lg cta">
+                            <a href="#" class="btn btn-dark btn-lg cta" data-aos="zoom-in">
                                 <i class="bi bi-google-play mr-2"></i> Playstore
                             </a>
-                            <a href="#" class="btn btn-dark btn-lg cta">
+                            <a href="#" class="btn btn-dark btn-lg cta" data-aos="zoom-in" data-aos-delay="100">
                                 <i class="bi bi-apple mr-2"></i> Appstore
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center" data-aos="fade-left">
                     <img src="hero.png" alt="Hero Image" class="img-fluid">
                 </div>
             </div>
-          
         </div>
     </section>
 
@@ -204,22 +252,36 @@
     </section>
 
     <!-- Download App Section -->
-    <section class="download-section text-center">
+    <section class="download-section" data-aos="fade-up">
         <div class="container">
-            <h2>Download the App Now</h2>
-            <p>Please feel free to download our app from the play store or app store.</p>
-            <a href="#" class="btn btn-dark btn-lg">Playstore</a>
-            <a href="#" class="btn btn-dark btn-lg">Appstore</a>
+            <div class="row">
+                <div class="col-md-6 text-left" data-aos="fade-right">
+                    <img src="logo.png" alt="Adiona Logo" class="mb-4" style="height: 1.5rem;">
+                    <h2 data-aos="fade-up" data-aos-delay="100">Download the App Now</h2>
+                    <p data-aos="fade-up" data-aos-delay="200">Download our app from the Play Store or App Store for a seamless booking experience. With AI-powered search, personalized recommendations, and exclusive deals, Adiona makes finding your perfect stay effortless. Enhance your travel experience today.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" class="btn btn-dark btn-lg cta" data-aos="zoom-in" data-aos-delay="300">
+                            <i class="bi bi-google-play mr-2"></i> Playstore
+                        </a>
+                        <a href="#" class="btn btn-dark btn-lg cta" data-aos="zoom-in" data-aos-delay="400">
+                            <i class="bi bi-apple mr-2"></i> Appstore
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center" data-aos="fade-left">
+                    <!-- <img src="download-app.png" alt="Download App" class="img-fluid"> -->
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-4">
+    <footer class="text-center py-4" style="background-color: #000; color: #fff;">
         <div class="container">
             <p>&copy; 2024 Adiona. All rights reserved.</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Terms & Conditions</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#" style="color: #fff; text-decoration: none;">Terms & Conditions</a></li>
+                <li class="list-inline-item"><a href="#" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
             </ul>
         </div>
     </footer>
