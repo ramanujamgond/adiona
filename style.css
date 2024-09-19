@@ -6,6 +6,10 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 
 .hero-section {
     background-color: #F4F4F4;
