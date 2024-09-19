@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
 
 .hero-section {
     background-color: #F4F4F4;
@@ -62,6 +67,18 @@
     font-family: Inter;
     font-size: 1rem; /* 16px in rem */
     font-weight: 400;
+}
+
+.navbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.hero-section + .navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -131,6 +148,12 @@ h1 {
     transition: background-color 0.3s, color 0.3s;
 }
 
+@media (max-width: 767.98px) {
+    #features .col-md-4 {
+        margin-bottom: 2rem;
+    }
+}
+
 .cardmain:hover {
     background-color: #000;
     color: #FFF;
@@ -196,6 +219,13 @@ h1 {
     /* padding-bottom: 6rem; */
     padding-left: 4rem !important;
     padding-right: 4rem !important;
+}
+
+@media (max-width: 768px) {
+    .hsearch {
+        border-radius: 0;
+        padding-bottom: 4rem;
+    }
 }
 
 .hsearch h2 {
